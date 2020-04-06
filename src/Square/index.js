@@ -2,10 +2,14 @@ import React from 'react';
 import './style.css';
 
 class Square extends React.Component{
+    
+
     render() {
         return (
-            <button class = 'square-box'>
-            {this.props.indexNumber}
+            <button className = 'square-box'
+            onClick = {() => this.props.squarePressed()}
+            >
+            {this.props.value}
             </button>
         );
     }
