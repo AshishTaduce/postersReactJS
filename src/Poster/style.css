@@ -15,7 +15,7 @@
     margin: 8px 16px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-end;
     background-color: #1E1E1E;
 
     width: 200px;
@@ -34,14 +34,10 @@
     text-align: left;
     display: flex;
     flex-direction: column;
-    justify-content: start;
-    align-items: stretch;
-    background-color:rgba(0, 0, 0, 0.75);
-    position: absolute;
-    height: 100%;
+    /* justify-content: flex-end; */
+    background-color:white;
     width: 100%;
-    bottom: 0;
-    color: white;
+    color: black;
     animation: fadeIn 1s ease;
     animation-iteration-count: 1; 
     animation-fill-mode: forwards;
@@ -60,62 +56,47 @@
     font-size: 16px;
     font-weight: 600;
     padding: 4px;
-    padding-top: 8px;
     border-bottom: 0.5px solid whitesmoke;
     margin: 0;
     margin-bottom: 8px;
     word-wrap: normal;
-    height: 15%;
-    top: 0;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
 }
 
-.overview{
-    font-size: 14px;
-    padding: 4px;
-    border-bottom: 0.5px solid whitesmoke;
-    margin: 0;
-    margin-bottom: 8px;
-    word-wrap: normal;
-    flex-wrap: wrap;
-    max-lines: 5;
-    overflow: hidden;
-    height: 50%;
-}
-
-.genre-rating {
+.overview-rating {
     font-size: 14px;
     color: gray;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
-    bottom: 0;
-    height: 15%;
+    justify-content: start;
+    width: 100%;
+    height: 30%;
+}
+
+.overview{
+    font-size: 10px;
+    padding: 4px;
+    margin: 0;
+    word-wrap: normal;
+    max-lines: 5;
+    overflow: hidden;
+    width: 70%;
 }
 
 .rating {
-    width: 70px;
-    height: 20px;
-    font-size: 12px;
+    padding: 2px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: auto;
+    font-size: 14px;
     color: aliceblue;
     background-color: red;
+    /* height: 20px; */
     border-radius: 8px;
     text-align: center;
     margin: 8px 0;
-    
 }
-
-.genre {
-    height: 140px;
-    width: 100px;
-    margin: 8px 0;
-    text-align: left;
-    height: 16px;
-    overflow-wrap: normal;
-    margin-top: 0;
-
-}
-

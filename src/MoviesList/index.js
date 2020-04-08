@@ -34,7 +34,7 @@ class MoviesList extends React.Component{
     }
 
     async getPosters() {
-        setTimeout(function () { }, 3000);        
+        setTimeout(function () {}, 3000);        
         let moviesList = await fetch('https://api.themoviedb.org/3/discover/movie?api_key=a68598b6e3e81567486644082b967d8f&sort_by=revenue.desc')
         moviesList = (await moviesList.json()).results;
         console.log(moviesList.length);
@@ -42,11 +42,13 @@ class MoviesList extends React.Component{
         for(let i = 0; i < moviesList.length; i++){
             console.log(moviesList[i].title);
             items.push(<Poster
+                
                 posterurl = {'http://image.tmdb.org/t/p/w185' + moviesList[i].poster_path}
                 title = {moviesList[i].title}
                 genre = {moviesList[i].genres}
-                rating = {moviesList[i].contentRating}
+                rating = {moviesList[i].genre_ids[1]}
                 overview = {moviesList[i].overview}
+                movie = {moviesList[i]}
                 />)
         }
         this.setState({
