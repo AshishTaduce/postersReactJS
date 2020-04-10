@@ -15,3 +15,12 @@
     font-size: 36px;
     color: aliceblue;
 }
+
+.main-page {
+    background-color: grey;
+}
+
+.search-bar {
+    display: flex;
+    justify-content: center;
+}
