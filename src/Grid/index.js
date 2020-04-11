@@ -24,7 +24,7 @@ class Grid extends React.Component {
 
     render() {
         return (
-            <div>
+            <div className={'grid'}>
                 <div>{this.getGridRow(0)}</div>
                 <div>{this.getGridRow(3)}</div>
                 <div>{this.getGridRow(6)}</div>

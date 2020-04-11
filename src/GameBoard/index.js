@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import Grid from "../Grid"
 import Square from "../Square"
-import MovesList from "../MoveList"
+import MovesList from "../MovesList"
 
 class GameBoard extends React.Component{
 
@@ -9,6 +9,7 @@ class GameBoard extends React.Component{
         super(props);
         this.state = {
             list: [Array(9).fill(null),],
+            movesList: [],
             isXNext : true,
             status: 'Player X turn',
         };
@@ -83,6 +84,18 @@ class GameBoard extends React.Component{
         );
     }
 
+    updateMovesList(index){
+        let temp = this.state.list.slice();
+        let j = -1;
+        while(j < index){
+            temp.shift();
+            j++;
+        }
+        this.setState({
+            list: temp,
+        });
+    }
+
     render(){
         return(
             <div>
@@ -92,8 +105,17 @@ class GameBoard extends React.Component{
                 <div>
                     {this.state.status}
                 </div>
-                <MovesList
-                list = {this.state.list}/>
+                <div>
+                    {
+                        this.state.list.map((x, i) => {
+                            return (
+                                    <button onClick = {() => this.updateMovesList(i)}>
+                                        List Move {i + 1}
+                                    </button>
+                                    );
+                        })
+                    }
+                </div>
             </div>
             );
     }
