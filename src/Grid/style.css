@@ -3,10 +3,12 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    flex-wrap: wrap;
+    flex: 1;
+
 }
 
 .grid-row {
+    width: 300px;
     display: flex;
     flex-direction: row;
 }

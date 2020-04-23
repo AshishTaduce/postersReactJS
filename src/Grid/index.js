@@ -1,28 +1,24 @@
 import React from "react";
 import Square from "../Square";
+import './style.css'
 // import MoviesList from "../MoviesList"
 // import { Link } from "react-router-dom";
 
 class Grid extends React.Component {
 
-    constructor(props){
-        super(props);
-        this.state = {
-            squares: this.props.board,
-        }
-    }
-
     getGridRow(offset) {
+
         return (
             <div className="grid-row">
-            <Square value={this.state.squares[offset]} squarePressed ={() => this.props.handleClicks(offset)}/>
-            <Square value={this.state.squares[offset + 1]} squarePressed ={() => this.props.handleClicks(offset + 1)}/>
-            <Square value={this.state.squares[offset + 2]} squarePressed ={() => this.props.handleClicks(offset + 2)}/>
+            <Square value={this.props.board[offset]} squarePressed ={() => this.props.handleClicks(offset)}/>
+            <Square value={this.props.board[offset + 1]} squarePressed ={() => this.props.handleClicks(offset + 1)}/>
+            <Square value={this.props.board[offset + 2]} squarePressed ={() => this.props.handleClicks(offset + 2)}/>
             </div>
         );
     }
 
     render() {
+        console.log('Inside square grid: ' , this.props.board);
         return (
             <div className={'grid'}>
                 <div>{this.getGridRow(0)}</div>

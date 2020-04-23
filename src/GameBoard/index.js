@@ -1,15 +1,14 @@
-import React, {useState} from "react";
 import Grid from "../Grid"
 import Square from "../Square"
-import MovesList from "../MovesList"
+import * as React from "react";
 
 class GameBoard extends React.Component{
 
     constructor(props){
         super(props);
         this.state = {
-            list: [Array(9).fill(null),],
-            movesList: [],
+            list: Array(9).fill(null),
+            movesList: [Array(9).fill(null),],
             isXNext : true,
             status: 'Player X turn',
         };
@@ -41,22 +40,23 @@ class GameBoard extends React.Component{
         // let [isXNext, updateTurn] = useState(true);
         //
         // let[squares, updateArray] = useState(this.state.list);
-
-        let squaresCopy = this.state.list[0];
+console.log('Inside handle click: ', this.state.movesList, index);
+        let squaresCopy = this.state.movesList[this.state.movesList.length - 1].slice();
 
         if(squaresCopy[index] !== null) return;
 
         squaresCopy[index] = this.state.isXNext ? 'X' : 'O';
 
-        this.state.list.unshift(squaresCopy);
-
-
+        let temp = this.state.movesList.slice();
+        temp.push(squaresCopy);
 
         this.setState({
+            movesList: temp,
             isXNext: !this.state.isXNext,
             status: !this.state.isXNext
                 ? 'Player X turn' : 'Player O turn',
         });
+
 
         if(this.checkIfWon(squaresCopy)){
             this.setState({
@@ -71,6 +71,8 @@ class GameBoard extends React.Component{
                 status: 'It is a draw.',
             });
         }
+        console.log('Finishing handle click: ', this.state.movesList, index);
+
     }
 
     getGridRow(offset) {
@@ -85,21 +87,22 @@ class GameBoard extends React.Component{
     }
 
     updateMovesList(index){
-        let temp = this.state.list.slice();
-        let j = -1;
-        while(j < index){
-            temp.shift();
-            j++;
+        let temp = this.state.movesList.slice();
+        let j = temp.length - 1;
+        while(j > index){
+            temp.pop();
+            index++;
         }
         this.setState({
-            list: temp,
+            movesList: temp,
         });
     }
 
     render(){
+        console.log('Inside render with board of: ', this.state.movesList[this.state.movesList.length - 1]);
         return(
             <div>
-                <Grid board = {this.state.list[0]}
+                <Grid board = {this.state.movesList[this.state.movesList.length - 1]}
                 handleClicks = {(index) => this.handleClicks(index)}
                 />
                 <div>
@@ -107,10 +110,21 @@ class GameBoard extends React.Component{
                 </div>
                 <div>
                     {
-                        this.state.list.map((x, i) => {
+                        this.state.movesList.map((element, i, arr) => {
+                            if(i === 0)
+                                return(
+                                    <button onClick = {() => {
+                                        this.setState({
+                                        movesList: [Array(9).fill(null),],
+                                    })
+                                    }}>
+                                        Reset Game
+                                    </button>
+                                );
+                            else if(i !== arr.length - 1)
                             return (
                                     <button onClick = {() => this.updateMovesList(i)}>
-                                        List Move {i + 1}
+                                        List Move {i}
                                     </button>
                                     );
                         })
