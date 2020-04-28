@@ -17,8 +17,6 @@ class GameBoard extends React.Component{
     }
 
     checkIfWon(squaresCopy){
-        // alert('Entered checker');
-        console.log(`Square are ${squaresCopy}`);
         for(let offset = 0; offset < 7; offset+= 3){
             if((squaresCopy[offset] !== null) && (squaresCopy[offset] === squaresCopy[offset + 1]) && (squaresCopy[offset + 1] === squaresCopy[offset + 2]))
                 return true;
@@ -27,10 +25,8 @@ class GameBoard extends React.Component{
             if((squaresCopy[offset] !== null) && (squaresCopy[offset] === squaresCopy[offset + 3]) && (squaresCopy[offset + 3]=== squaresCopy[offset + 6]))
                 return true;
         }
-        
         if((squaresCopy[4] !== null ) && (squaresCopy[4] === squaresCopy[0]) && (squaresCopy[0] === squaresCopy[8]))
             return true;
-
         return (squaresCopy[4] === squaresCopy[2]) && squaresCopy[2] === squaresCopy[6] && squaresCopy[2] !== null;
         
 
@@ -40,10 +36,9 @@ class GameBoard extends React.Component{
         // let [isXNext, updateTurn] = useState(true);
         //
         // let[squares, updateArray] = useState(this.state.list);
-console.log('Inside handle click: ', this.state.movesList, index);
         let squaresCopy = this.state.movesList[this.state.movesList.length - 1].slice();
 
-        if(squaresCopy[index] !== null) return;
+        if(squaresCopy[index] !== null || this.checkIfWon(squaresCopy)) return;
 
         squaresCopy[index] = this.state.isXNext ? 'X' : 'O';
 
