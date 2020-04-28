@@ -67,7 +67,6 @@ class GameBoard extends React.Component{
             });
         }
         console.log('Finishing handle click: ', this.state.movesList, index);
-
     }
 
     getGridRow(offset) {
@@ -88,9 +87,18 @@ class GameBoard extends React.Component{
             temp.pop();
             index++;
         }
+        this.calculateCurrentTurn(temp);
         this.setState({
             movesList: temp,
         });
+    }
+
+    calculateCurrentTurn(squares){
+        squares.filter(e => e === null);
+        this.setState({
+            isXNext: squares.length %2 !== 0,
+            status: squares.length %2 !== 0 ? 'Player X turn' : 'Player O turn',
+        })
     }
 
     render(){
