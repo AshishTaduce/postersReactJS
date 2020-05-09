@@ -6,11 +6,11 @@ class Square extends React.Component{
 
     render() {
         return (
-            <button className = 'square-box'
+            <div className = 'square-box'
             onClick = {() => this.props.squarePressed()}
             >
             {this.props.value}
-            </button>
+            </div>
         );
     }
 }

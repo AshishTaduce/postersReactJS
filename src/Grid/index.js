@@ -1,8 +1,6 @@
 import React from "react";
 import Square from "../Square";
 import './style.css'
-// import MoviesList from "../MoviesList"
-// import { Link } from "react-router-dom";
 
 class Grid extends React.Component {
 
@@ -22,7 +20,7 @@ class Grid extends React.Component {
         return (
             <div className={'grid'}>
                 <div>{this.getGridRow(0)}</div>
-                <div>{this.getGridRow(3)}</div>
+                <div className={'center-row'}>{this.getGridRow(3)}</div>
                 <div>{this.getGridRow(6)}</div>
             </div>
         );

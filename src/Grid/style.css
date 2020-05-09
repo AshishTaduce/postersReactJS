@@ -3,14 +3,21 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    flex: 1;
-
+    border: aliceblue 8px solid;
+    border-radius: 16px;
 }
 
 .grid-row {
-    width: 300px;
+    /*border-top: 0;*/
+    min-width: 300px;
+    min-height: 100px;
     display: flex;
     flex-direction: row;
+}
+
+.center-row{
+    border-bottom: aliceblue solid 8px;
+    border-top: aliceblue solid 8px;
 }
 
 .status{

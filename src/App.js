@@ -8,6 +8,4 @@ function App() {
   );
 }
 
-// <GameBoard/>
-
 export default App;

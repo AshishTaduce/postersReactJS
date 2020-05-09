@@ -1,3 +1,15 @@
 .grid-row{
     display: flex;
 }
+
+.main-page{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: rebeccapurple;
+}

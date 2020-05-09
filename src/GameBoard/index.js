@@ -1,6 +1,7 @@
 import Grid from "../Grid"
 import Square from "../Square"
 import * as React from "react";
+import './style.css'
 
 class GameBoard extends React.Component{
 
@@ -101,7 +102,7 @@ class GameBoard extends React.Component{
     render(){
         console.log('Inside render with board of: ', this.state.movesList[this.state.movesList.length - 1]);
         return(
-            <div>
+            <div className='main-page'>
                 <Grid board = {this.state.movesList[this.state.movesList.length - 1]}
                 handleClicks = {(index) => this.handleClicks(index)}
                 />
