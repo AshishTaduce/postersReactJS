@@ -33,9 +33,6 @@ class GameBoard extends React.Component{
     }
 
     handleClicks(index){
-        // let [isXNext, updateTurn] = useState(true);
-        //
-        // let[squares, updateArray] = useState(this.state.list);
         let squaresCopy = this.state.movesList[this.state.movesList.length - 1].slice();
 
         if(squaresCopy[index] !== null || this.checkIfWon(squaresCopy)) return;
