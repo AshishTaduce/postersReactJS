@@ -1,23 +1,18 @@
 .grid {
     margin: 16px;
+    padding: 8px;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    border: aliceblue 8px solid;
+    background-color: #1e1e1e;
     border-radius: 16px;
 }
 
 .grid-row {
-    /*border-top: 0;*/
-    min-width: 300px;
-    min-height: 100px;
+    max-width: 300px;
+    max-height: 100px;
     display: flex;
     flex-direction: row;
-}
-
-.center-row{
-    border-bottom: aliceblue solid 8px;
-    border-top: aliceblue solid 8px;
 }
 
 .status{

@@ -111,13 +111,15 @@ class GameBoard extends React.Component{
                 </div>
                 <div>
                     {
+                        // eslint-disable-next-line array-callback-return
                         this.state.movesList.map((element, i, arr) => {
                             if(i === 0)
                                 return(
                                     <button onClick = {() => {
                                         this.setState({
                                         movesList: [Array(9).fill(null),],
-                                    })
+                                    });
+                                        this.updateMovesList(i);
                                     }}>
                                         Reset Game
                                     </button>
