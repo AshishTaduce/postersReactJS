@@ -22,6 +22,7 @@ class Grid extends React.Component {
                 <div>{this.getGridRow(0)}</div>
                 <div className={'center-row'}>{this.getGridRow(3)}</div>
                 <div>{this.getGridRow(6)}</div>
+                <div className={'bulb-border'}></div>
             </div>
         );
     }

@@ -17,8 +17,8 @@
 }
 
 @keyframes kill-glow {
-    0% {box-shadow: inherit}
-    100% {box-shadow: 0 0 0 0 rgb(231,240,242)}
+    0% {box-shadow: initial}
+    100% {box-shadow: 0 0 0 1px rgb(231,240,242)}
 }
 
 .square-box:hover{
@@ -53,7 +53,7 @@
     background-position: center;
     overflow: hidden;
     box-shadow: initial;
-    animation: cross-glow 1.5s forwards;
+    animation: cross-glow 1s forwards;
 }
 
 .circle-box{
@@ -72,7 +72,7 @@
     background-position: center;
     overflow: hidden;
     box-shadow: initial;
-    animation: circle-glow 1.5s forwards;
+    animation: circle-glow 1s forwards;
 }
 
 @keyframes circle-glow {

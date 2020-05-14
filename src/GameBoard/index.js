@@ -8,8 +8,7 @@ class GameBoard extends React.Component{
     constructor(props){
         super(props);
         this.state = {
-            list: Array(9).fill(null),
-            movesList: [Array(9).fill(null),],
+            movesList: Array(9).fill(null),
             isXNext : true,
             status: 'Player X turn',
         };
@@ -34,22 +33,18 @@ class GameBoard extends React.Component{
     }
 
     handleClicks(index){
-        let squaresCopy = this.state.movesList[this.state.movesList.length - 1].slice();
+        let squaresCopy = this.state.movesList.slice();
 
         if(squaresCopy[index] !== null || this.checkIfWon(squaresCopy)) return;
 
         squaresCopy[index] = this.state.isXNext ? 'X' : 'O';
 
-        let temp = this.state.movesList.slice();
-        temp.push(squaresCopy);
-
         this.setState({
-            movesList: temp,
+            movesList: squaresCopy,
             isXNext: !this.state.isXNext,
             status: !this.state.isXNext
                 ? 'Player X turn' : 'Player O turn',
         });
-
 
         if(this.checkIfWon(squaresCopy)){
             this.setState({
@@ -78,19 +73,6 @@ class GameBoard extends React.Component{
         );
     }
 
-    updateMovesList(index){
-        let temp = this.state.movesList.slice();
-        let j = temp.length - 1;
-        while(j > index){
-            temp.pop();
-            index++;
-        }
-        this.calculateCurrentTurn(temp);
-        this.setState({
-            movesList: temp,
-        });
-    }
-
     calculateCurrentTurn(squares){
         squares.filter(e => e === null);
         this.setState({
@@ -103,36 +85,12 @@ class GameBoard extends React.Component{
         console.log('Inside render with board of: ', this.state.movesList[this.state.movesList.length - 1]);
         return(
             <div className='main-page'>
-                <Grid board = {this.state.movesList[this.state.movesList.length - 1]}
-                handleClicks = {(index) => this.handleClicks(index)}
-                />
                 <div>
                     {this.state.status}
                 </div>
-                <div>
-                    {
-                        // eslint-disable-next-line array-callback-return
-                        this.state.movesList.map((element, i, arr) => {
-                            if(i === 0)
-                                return(
-                                    <button onClick = {() => {
-                                        this.setState({
-                                        movesList: [Array(9).fill(null),],
-                                    });
-                                        this.updateMovesList(i);
-                                    }}>
-                                        Reset Game
-                                    </button>
-                                );
-                            else if(i !== arr.length - 1)
-                            return (
-                                    <button onClick = {() => this.updateMovesList(i)}>
-                                        List Move {i}
-                                    </button>
-                                    );
-                        })
-                    }
-                </div>
+                <Grid board = {this.state.movesList}
+                handleClicks = {(index) => this.handleClicks(index)}
+                />
             </div>
             );
     }
