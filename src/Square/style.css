@@ -1,12 +1,86 @@
 .square-box {
     font-size: 36px;
-    padding: 8px;
-    border: 2px solid black;
-    background-color: aliceblue;
-    width: 50px;
-    max-width: 100%;
-    max-height: 100%;
-    height: 50px;
-    flex: 1;
+    margin: 8px;
+    background-color: transparent;
+    /*flex: 1;*/
+    border-radius: 8px;
+    display: flex;
     justify-content: center;
+    align-items: center;
+    padding: 0;
+    background-image: url("./back-groung.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    overflow: hidden;
+    animation: kill-glow 0.5s forwards;
+}
+
+@keyframes kill-glow {
+    0% {box-shadow: initial}
+    100% {box-shadow: 0 0 0 1px rgb(231,240,242)}
+}
+
+.square-box:hover{
+    animation: breathing-glow 1s infinite;
+}
+
+@keyframes breathing-glow {
+    0%   {box-shadow: 0 0 5px 1px rgb(231,240,242)}
+    50%  {box-shadow: 0 0 5px 6px rgb(231,240,242)}
+    100% {box-shadow: 0 0 5px 1px rgb(231,240,242)}
+}
+
+.square-icon{
+    width: 100%;
+    height: 100%;
+    padding: 0;
+}
+
+.cross-box{
+    font-size: 36px;
+    margin: 8px;
+    background-color: transparent;
+    /*flex: 1;*/
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    background-image: url("./back-groung.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    overflow: hidden;
+    box-shadow: initial;
+    animation: cross-glow 1s forwards;
+}
+
+.circle-box{
+    font-size: 36px;
+    margin: 8px;
+    background-color: transparent;
+    /*flex: 1;*/
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    background-image: url("./back-groung.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    overflow: hidden;
+    box-shadow: initial;
+    animation: circle-glow 1s forwards;
+}
+
+@keyframes circle-glow {
+    0%   {box-shadow: 0 0 5px 1px rgb(231,240,242)}
+    100%  {box-shadow: 0 0 5px 6px deepskyblue}
+}
+
+@keyframes cross-glow {
+    0%   {box-shadow: 0 0 5px 1px rgb(231,240,242)}
+    100%  {box-shadow: 0 0 5px 6px orangered}
 }

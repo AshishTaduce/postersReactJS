@@ -1,3 +1,8 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
 .App {
   display: flex;
   flex-direction: row;
@@ -5,5 +10,6 @@
   align-items: center;
   text-align: center;
   height: 100%;
+  width: 100%;
   background-color:#1E1E1E;
 } 
